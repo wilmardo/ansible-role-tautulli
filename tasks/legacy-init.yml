@@ -1,0 +1,51 @@
+---
+- block:
+    - name: Setup Software Collections
+      yum:
+        name: centos-release-scl
+        state: present
+
+    - name: Setup Python 2.7
+      yum:
+        name: python27
+        state: present
+
+    - name: Move init script Centos 6
+      template:
+        src: tautulli/init-centos-fedora.j2
+        dest: /etc/init.d/tautulli
+        owner: root
+        group: root
+        mode: 0775
+      notify: restart tautulli
+
+    - name: Autostart Tautulli and restart service
+      service:
+        name: tautulli
+        enabled: true
+      notify: restart tautulli
+
+  when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '6'
+
+- block:
+    - name: Move init script for older ubuntu versions
+      file:
+        src: "{{ tautulli_install_location }}/init-scripts/init.ubuntu"
+        dest: /etc/init.d/tautulli
+        owner: root
+        group: root
+        mode: 0775
+        state: link
+
+    - name: Set defaults in file
+      template:
+        src: tautulli/ubuntu-tautulli-defaults.j2
+        dest: /etc/default/tautulli
+
+    - name: Autostart Tautulli and restart service
+      service:
+        name: tautulli
+        enabled: true
+      notify: restart tautulli
+
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version|int <= 15.10

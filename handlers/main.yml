@@ -1,0 +1,5 @@
+---
+- name: restart tautulli
+  service:
+    name: tautulli
+    state: restarted
