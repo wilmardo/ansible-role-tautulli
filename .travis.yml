@@ -28,8 +28,7 @@ addons:
 
 script:
   - echo $DOCKER_HOST
-  - docker run --net=host -it -v $(pwd):/data/$(basename ~+) -w /data/$(basename ~+) \
-    lansible/ansible-dev-container:$TAG molecule converge
+  - docker run --net=host -it -v $(pwd):/data/$(basename ~+) -w /data/$(basename ~+) lansible/ansible-dev-container:$TAG molecule converge
 
 notifications:
 #  webhooks: https://galaxy.ansible.com/api/v1/notifications/
