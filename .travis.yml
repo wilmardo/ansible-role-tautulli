@@ -1,7 +1,7 @@
 ---
 dist: trusty
 language: python
-sudo: required
+sudo: false
 cache:
   pip: true
 
@@ -27,8 +27,7 @@ addons:
       - docker-ce
 
 script:
-  - sed -i 's/^DOCKER_OPTS=.*/DOCKER_OPTS="-H tcp://127.0.0.1:2375/ -H unix:///var/run/docker.sock' /etc/init/docker.conf
-  - sudo service docker restart
+  - echo $DOCKER_HOST
   - docker run --net=host -it -v $(pwd):/data/$(basename ~+) -w /data/$(basename ~+) \
     lansible/ansible-dev-container:$TAG molecule converge
 
