@@ -27,7 +27,8 @@ addons:
       - docker-ce
 
 script:
-  - echo $DOCKER_HOST
+  - sudo service docker stop
+  - sudo dockerd -H unix:///var/run/docker.sock -H tcp://127.0.0.1:2375
   - docker run --net=host -it -v $(pwd):/data/$(basename ~+) -w /data/$(basename ~+) lansible/ansible-dev-container:$TAG molecule converge
 
 notifications:
