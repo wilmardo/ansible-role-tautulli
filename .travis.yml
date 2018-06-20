@@ -28,10 +28,15 @@ addons:
 
 before_script:
   - sudo service docker stop
-  - sudo dockerd -H unix:///var/run/docker.sock -H tcp://127.0.0.1:2375
+  - |
+    sudo dockerd -H unix:///var/run/docker.sock -H tcp://127.0.0.1:2375 &
+    SERVER_PID=$!
 
 script:
 - docker run --net=host -it -v $(pwd):/data/$(basename ~+) -w /data/$(basename ~+) lansible/ansible-dev-container:$TAG molecule converge
+
+after_script:
+  - sudo kill -9 $SERVER_PID
 
 notifications:
 #  webhooks: https://galaxy.ansible.com/api/v1/notifications/
