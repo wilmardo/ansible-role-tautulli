@@ -26,10 +26,12 @@ addons:
     packages:
       - docker-ce
 
-script:
+before_script:
   - sudo service docker stop
   - sudo dockerd -H unix:///var/run/docker.sock -H tcp://127.0.0.1:2375
-  - docker run --net=host -it -v $(pwd):/data/$(basename ~+) -w /data/$(basename ~+) lansible/ansible-dev-container:$TAG molecule converge
+
+script:
+- docker run --net=host -it -v $(pwd):/data/$(basename ~+) -w /data/$(basename ~+) lansible/ansible-dev-container:$TAG molecule converge
 
 notifications:
 #  webhooks: https://galaxy.ansible.com/api/v1/notifications/
