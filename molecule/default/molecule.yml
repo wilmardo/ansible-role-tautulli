@@ -22,14 +22,14 @@ platforms:
   - name: tautulli-Debian8
     image: lansible/debian:8
 
-  - name: tautulli-Fedora27
-    image: lansible/fedora:27
-
-  - name: tautulli-Fedora26
-    image: lansible/fedora:26
-
-  - name: tautulli-Fedora25
-    image: lansible/fedora:26
+#  - name: tautulli-Fedora27
+#    image: lansible/fedora:27
+#
+#  - name: tautulli-Fedora26
+#    image: lansible/fedora:26
+#
+#  - name: tautulli-Fedora25
+#    image: lansible/fedora:26
 
   - name: tautulli-Ubuntu1604
     image: lansible/ubuntu:16.04
