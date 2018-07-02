@@ -16,20 +16,23 @@ platforms:
   - name: tautulli-CentOS7
     image: lansible/centos:7
 
+#  - name: tautulli-CentOS6
+#    image: lansible/centos:6
+
   - name: tautulli-Debian9
     image: lansible/debian:9
 
   - name: tautulli-Debian8
     image: lansible/debian:8
 
-  - name: tautulli-Fedora27
-    image: lansible/fedora:27
-
-  - name: tautulli-Fedora26
-    image: lansible/fedora:26
-
-  - name: tautulli-Fedora25
-    image: lansible/fedora:25
+#  - name: tautulli-Fedora27
+#    image: lansible/fedora:27
+#
+#  - name: tautulli-Fedora26
+#    image: lansible/fedora:26
+#
+#  - name: tautulli-Fedora25
+#    image: lansible/fedora:25
 
   - name: tautulli-Ubuntu1604
     image: lansible/ubuntu:16.04
