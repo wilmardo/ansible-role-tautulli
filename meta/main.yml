@@ -13,15 +13,18 @@ galaxy_info:
       versions:
         - 7
 #        - 6
+
     - name: Debian
       versions:
         - stretch
         - jessie
+
 #    - name: Fedora
 #      versions:
 #        - 27
 #        - 26
-        - 25
+#        - 25
+
     - name: Ubuntu
       versions:
         - xenial
@@ -34,5 +37,6 @@ galaxy_info:
     - plex
     - monitoring
     - plexstatistics
+    - system
 
   dependencies: []
