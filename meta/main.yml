@@ -9,7 +9,7 @@ galaxy_info:
   min_ansible_version: 2.3
 
   platforms:
-    - name: CentOS
+    - name: EL
       versions:
         - 7
         - 6
@@ -17,7 +17,6 @@ galaxy_info:
       versions:
         - stretch
         - jessie
-        - wheezy
     - name: Fedora
       versions:
         - 27
@@ -27,7 +26,6 @@ galaxy_info:
       versions:
         - xenial
         - trusty
-        - precise
 
   galaxy_tags:
     - tautulli

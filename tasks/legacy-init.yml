@@ -1,5 +1,23 @@
 ---
 - block:
+    - name: Move init script Centos 6
+      template:
+        src: tautulli/init-centos-fedora.j2
+        dest: /etc/init.d/tautulli
+        owner: root
+        group: root
+        mode: 0775
+      notify: restart tautulli
+
+    - name: Autostart Tautulli and restart service
+      service:
+        name: tautulli
+        enabled: true
+      notify: restart tautulli
+
+  when: ansible_distribution == 'Fedora'
+
+- block:
     - name: Setup Software Collections
       yum:
         name: centos-release-scl

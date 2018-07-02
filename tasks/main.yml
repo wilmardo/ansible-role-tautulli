@@ -5,4 +5,5 @@
 - name: Include for legacy support
   include_tasks: legacy-init.yml
   when: (ansible_distribution == 'CentOS' and ansible_distribution_major_version == '6') or
-      (ansible_distribution == 'Ubuntu' and ansible_distribution_version|int <= 15.10)
+      (ansible_distribution == 'Ubuntu' and ansible_distribution_version|int <= 15.10) or
+      ansible_distribution == 'Fedora'

@@ -1,6 +1,6 @@
 ---
 # Version of Tautulli to install, gets passed to the Ansible git module
-tautulli_version: v2.0.28
+tautulli_version: master
 # User to run tautulli as
 tautulli_user: tautulli
 # Group to run tautulli as
