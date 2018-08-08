@@ -1,7 +1,9 @@
 ---
-- name: Install git
+- name: Install prerequisite
   package:
-    name: git
+    name:
+      - git
+      - python-setuptools
     state: present
 
 # FIXME: This need removing after https://github.com/Tautulli/Tautulli/pull/1153
