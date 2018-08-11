@@ -8,10 +8,11 @@
 
 # FIXME: This need removing after https://github.com/Tautulli/Tautulli/pull/1153
 - name: Install which
-  yum:
+  package:
     name: which
     state: present
-  when: ansible_distribution == 'CentOS'
+  when: (ansible_distribution == 'CentOS') or
+        (ansible_distribution == 'Fedora')
 
 - name: Create user
   group:

@@ -12,7 +12,6 @@ galaxy_info:
     - name: EL
       versions:
         - 7
-#        - 6
 
     - name: Debian
       versions:
@@ -28,7 +27,7 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - xenial
-#        - trusty
+        - trusty
 
   galaxy_tags:
     - tautulli

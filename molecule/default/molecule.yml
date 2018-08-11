@@ -16,20 +16,17 @@ platforms:
   - name: tautulli-CentOS7
     alias: centos/7/amd64
 
-  - name: tautulli-CentOS6
-    alias: centos/6/amd64
-
   - name: tautulli-Debian9
     alias: debian/stretch/amd64
 
   - name: tautulli-Debian8
     alias: debian/jessie/amd64
 
-  - name: tautulli-Fedora27
-    alias: fedora/27/amd64
+#  - name: tautulli-Fedora27
+#    alias: fedora/27/amd64
 
-  - name: tautulli-Fedora26
-    alias: fedora/26/amd64
+#  - name: tautulli-Fedora26
+#    alias: fedora/26/amd64
 
   - name: tautulli-Ubuntu1604
     alias: ubuntu/xenial/amd64
