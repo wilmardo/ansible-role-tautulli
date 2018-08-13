@@ -2,10 +2,9 @@
 - name: Prepare
   hosts: all
   gather_facts: false
-
-  pre_tasks:
+  tasks:
     - name: Test if Python is installed
-      raw: python -c 'import sys; print(".".join(map(str, sys.version_info[:3])))' # gets Python version
+      raw: python -V # execute Python
       register: python_version
       changed_when: "'not found' in python_version.stderr"
       failed_when: false
@@ -20,7 +19,7 @@
           yum install -y python
         elif [ -x "$(command -v zypper)" ]
         then
-          zypper --non-interactive --gpg-auto-import-keys refresh && zypper --non-interactive install -y python python-xml
+          zypper -n --gpg-auto-import-keys refresh && zypper -n install -y python python-xml
         elif [ -x "$(command -v apk)" ]
         then
           apk update && apk add python
@@ -37,19 +36,15 @@
       when: "'not found' in python_version.stderr"
 
     - name: Gathering Facts
-      setup: #aka gather_facts
+      setup: # aka gather_facts
 
-    - name: Installed equery on Gentoo based containers when not available
-      raw: |
-        if [ ! -x "$(command -v equery)" ]
-        then
-          emerge --ask n gentoolkit
-        fi
+    - name: Install equery on Gentoo based containers when not available
+      raw: test -e /usr/bin/equery || emerge --ask n gentoolkit
       register: equery_status
       changed_when: equery_status.stdout != ''
       when: ansible_os_family == 'Gentoo'
 
-    - name: Install some basic packages because LXD containers are bare
+    - name: Install some basic packages because LXC containers are bare
       package:
         name:
           - ca-certificates
