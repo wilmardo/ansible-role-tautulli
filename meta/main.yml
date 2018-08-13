@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: tautulli
   author: Wilmar den Ouden
   description: |
     Role to install Tautulli (former PlexPy), is mainly used by wilmardo/ansible-role-plex
