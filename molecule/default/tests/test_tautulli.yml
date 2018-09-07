@@ -1,0 +1,13 @@
+---
+service:
+  tautulli:
+    enabled: true
+    running: true
+
+port:
+  tcp:8181:
+    listening: true
+
+http:
+  http://127.0.0.1:8181:
+    status: 200

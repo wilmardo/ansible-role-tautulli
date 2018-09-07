@@ -3,12 +3,3 @@
   hosts: all
   roles:
     - role: ansible-role-tautulli
-
-  post_tasks:
-    - name: Wait for Tautulli to succesfully restart
-      wait_for:
-        port: 8181
-
-    - name: Test Tautulli webinterface
-      uri:
-        url: "http://{{ inventory_hostname }}:8181/home"
